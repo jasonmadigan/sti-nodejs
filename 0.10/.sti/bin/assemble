@@ -26,4 +26,8 @@ echo "---> Installing application source"
 cp -Rf /tmp/src/. ./
 
 echo "---> Building your Node application from source"
-npm install -d
+if [[ "$NODE_ENV" == "production" ]]; then
+  npm install -d --production
+else
+  npm install -d
+fi
